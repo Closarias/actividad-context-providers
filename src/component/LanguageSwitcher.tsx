@@ -1,20 +1,15 @@
+import { useLanguage, type Language } from "@/context/LanguageContext";
+
 export default function LanguageSwitcher() {
-    // TODO
-    //const {language, setLanguage} = useLanguage();
-    /* --------------------------- */
-    // Eliminar
-    let language : "es" | "en" = "es";
-    const setLanguage = (lang: string) => {
-        console.log(`Cambiando el idioma: ${lang}`);
-    }
-    /* --------------------------- */
+
+    const {language, setLanguage} = useLanguage();
 
 
     return (
         <div
             className="flex text-xs border rounded-md overflow-hidden bg-white dark:bg-slate-800 dark:border-slate-600">
             <button
-                onClick={() => setLanguage("es")}
+                onClick={() => setLanguage("es" as Language)}
                 className={`px-2 py-1 ${
                     language === "es"
                         ? "bg-slate-900 text-white"
@@ -24,7 +19,7 @@ export default function LanguageSwitcher() {
                 ES
             </button>
             <button
-                onClick={() => setLanguage("en")}
+                onClick={() => setLanguage("en" as Language)}
                 className={`px-2 py-1 ${
                     language === "en"
                         ? "bg-slate-900 text-white"

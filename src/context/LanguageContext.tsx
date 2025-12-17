@@ -1,4 +1,4 @@
-import React, { useState, useContext, useMemo, useEffect } from "react";
+import React, { useState, useContext, useMemo, useEffect, createContext } from "react";
  
 import es from "../locales/es.json";
 import en from "../locales/en.json";
@@ -14,8 +14,8 @@ type LanguageContextType = {
     t: (key: TranslationKeys) => string;
 };
  
-const LanguageContext = React.createContext<LanguageContextType | undefined>(
-    undefined,
+const LanguageContext = createContext<LanguageContextType | undefined>(
+    undefined
 );
  
 type LanguageProviderProps = {
@@ -56,9 +56,9 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
 }
  
 export const useLanguage = () => {
-    const context = useContext(LanguageContext);
-    if (context === undefined) {
+    const ctx = useContext(LanguageContext);
+    if (ctx === undefined) {
         throw new Error("useLanguage must be used within a LanguageProvider");
     }
-    return context;
+    return ctx;
 };

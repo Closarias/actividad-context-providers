@@ -17,7 +17,6 @@ type ThemeProviderProps = {
 
 export default function ThemeProvider({children}:ThemeProviderProps){
 
-
     const currentTheme = window.localStorage.getItem(THEME_KEY);
     const storedTheme  = currentTheme==='dark' ? 'dark' : 'light';
 
